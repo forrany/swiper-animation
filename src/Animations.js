@@ -11,6 +11,10 @@ import clearAnimations from './clearAnimations';
  * @returns {null|*|Object}
  */
 const getSwiperContainer = (swiper) => {
+  if (swiper.el && swiper.el.getRootNode().host) {
+    // swiper web component
+    return swiper.el.getRootNode().host;
+  }
   if (swiper.el) {
     // swiper 4+
     return swiper.el;
